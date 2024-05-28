@@ -1,0 +1,80 @@
+% this is my first package
+% 
+% (c) Kia Ghods
+%
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN archives
+%% in directory macros/latex/base/lppl.txt.
+% 
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{kia}
+  [2024/01/17  v0.01 LaTeX package for my own purpose]
+
+\RequirePackage{amsmath, amsthm, amssymb, amsfonts}
+\RequirePackage{thmtools}
+\RequirePackage{graphicx}
+\RequirePackage{setspace}
+\RequirePackage{geometry}
+\RequirePackage{float}
+\RequirePackage{hyperref}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[english]{babel}
+\RequirePackage{framed}
+\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage{tcolorbox}
+\RequirePackage{enumerate}
+\RequirePackage{stix2}
+\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage{braket}
+\RequirePackage{polynom}
+\RequirePackage{tikz}
+\RequirePackage{pgfplots}
+\textheight 210mm
+\topmargin 0.0mm
+\oddsidemargin 0mm
+\evensidemargin 0mm
+\parindent 0pt
+
+\colorlet{LightGray}{White!90!Periwinkle}
+\colorlet{LightOrange}{Orange!15}
+\colorlet{LightGreen}{Green!15}
+
+
+\declaretheoremstyle[name=Theorem,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{theorem}
+\tcolorboxenvironment{theorem}{colback=LightGray}
+
+\declaretheoremstyle[name=Proposition,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proposition}
+\tcolorboxenvironment{proposition}{colback=LightOrange}
+
+\declaretheoremstyle[name=Principle,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{principle}
+\tcolorboxenvironment{principle}{colback=LightGreen}
+
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\Q}{{\mathbb Q}}
+\newcommand{\Z}{{\mathbb Z}}
+\newcommand{\N}{{\mathbb N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\limc}{{\lim_{x \rightarrow c}}}
+\newcommand{\image}{\operatorname{im}}
+\newcommand{\spa}{\operatorname{span}}
+\newcommand{\diverg}{\operatorname{div}}
+\newcommand{\curl}{\operatorname{curl}}
+\newcommand*{\vertbar}{\rule[-1ex]{0.5pt}{2.5ex}}
+\newcommand*{\horzbar}{\rule[.5ex]{2.5ex}{0.5pt}}
+
+
+\newenvironment{amatrix}[1]{%
+  \left(\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right)
+}
+
+\endinput
+%%
+%% End of file `mypackage.sty'.
