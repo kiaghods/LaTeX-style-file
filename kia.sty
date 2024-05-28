@@ -8,7 +8,7 @@
 % 
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
 \ProvidesPackage{kia}
-  [2024/01/17  v0.01 LaTeX package for my own purpose]
+  [2024/05/27  v0.05 LaTeX package for my own purpose]
 
 \RequirePackage{amsmath, amsthm, amssymb, amsfonts}
 \RequirePackage{thmtools}
@@ -75,6 +75,15 @@
   \end{array}\right)
 }
 
+\newcommand{\chapter}[1]{
+  \clearpage
+  \vspace*{20pt}
+  \begin{center}
+    \Large\bfseries #1
+  \end{center}
+  \vspace{20pt}
+}
+
 \endinput
 %%
-%% End of file `mypackage.sty'.
+%% End of file `kia.sty'.
