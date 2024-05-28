@@ -44,15 +44,37 @@
 
 \declaretheoremstyle[name=Theorem,]{thmsty}
 \declaretheorem[style=thmsty,numberwithin=section]{theorem}
-\tcolorboxenvironment{theorem}{colback=LightGray}
+\tcolorboxenvironment{theorem}{colback=LightOrange}
 
 \declaretheoremstyle[name=Proposition,]{prosty}
 \declaretheorem[style=prosty,numberlike=theorem]{proposition}
-\tcolorboxenvironment{proposition}{colback=LightOrange}
+\tcolorboxenvironment{proposition}{colback=ProcessBlue}
+
+\declaretheoremstyle[
+  name=Definition,]{defsty}
+\declaretheorem[
+  style=defsty, 
+  numberlike=theorem,
+]{definition}
+\tcolorboxenvironment{definition}{
+  colback=LightGray,
+  colframe=black,
+  boxrule=0.5mm,
+  arc=4mm,
+  boxsep=4mm,
+  width=\linewidth, % Adjust width to fit the text better
+  left=0pt,
+  right=0pt,
+  top=0pt,
+  bottom=0pt,
+  fonttitle=\bfseries\Large, % Adjust title font size
+  fontupper=\normalsize % Adjust content font size
+}
+
 
 \declaretheoremstyle[name=Principle,]{prcpsty}
 \declaretheorem[style=prcpsty,numberlike=theorem]{principle}
-\tcolorboxenvironment{principle}{colback=LightGreen}
+\tcolorboxenvironment{principle}{colback=lightblue}
 
 
 \newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
@@ -80,7 +102,9 @@
 \newcommand{\chapter}[1]{
   \clearpage
   \thispagestyle{plain}
-    \Huge \bfseries #1
+  {\Huge \bfseries #1}
+  \vspace{1em} % Add some space after the chapter title
+  \normalfont % Reset to normal font size
 }
 
 \endinput
