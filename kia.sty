@@ -33,6 +33,7 @@
 \RequirePackage{caption}
 \RequirePackage{subcaption}
 \RequirePackage{tikz}
+\RequirePackage{tikz-3dplot}
 \usetikzlibrary{graphs}
 \usetikzlibrary{graphs.standard}
 \usepackage{makeidx}
@@ -76,6 +77,22 @@
   fontupper=\normalsize % Adjust content font size
 }
 
+\declaretheoremstyle[name=Corollary,]{corsty}
+\declaretheorem[style=corsty,numberlike=theorem]{corollary}
+\tcolorboxenvironment{corollary}{
+  colback=LightGreen,
+  colframe=black,
+  boxrule=0.5mm,
+  arc=4mm,
+  boxsep=4mm,
+  width=\linewidth, % Adjust width to fit the text better
+  left=0pt,
+  right=0pt,
+  top=0pt,
+  bottom=0pt,
+  fonttitle=\bfseries\Large, % Adjust title font size
+  fontupper=\normalsize % Adjust content font size
+}
 
 \declaretheoremstyle[name=Principle,]{prcpsty}
 \declaretheorem[style=prcpsty,numberlike=theorem]{principle}
