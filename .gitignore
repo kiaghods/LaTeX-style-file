@@ -10,3 +10,7 @@
 *.ind
 Notes/Test*
 .DS_Store
+kia.sty
+
+# virtual environment
+venv/
