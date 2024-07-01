@@ -9,3 +9,4 @@
 *.ilg
 *.ind
 Notes/Test*
+.DS_Store
