@@ -40,9 +40,9 @@ def initialize_course_structure(course_path, is_self_study, num_problem_sets=0):
     if is_self_study:
         create_file(os.path.join(tex_path, 'notes.tex'))
         create_file(os.path.join(tex_path, 'solutions.tex'))
-        create_file(os.path.join(tex_path, 'compile_notes_and_solutions.tex'))
-        create_file(os.path.join(tex_path, 'compile_notes_only.tex'))
-        create_file(os.path.join(tex_path, 'compile_solutions_only.tex'))
+        create_file(os.path.join(tex_path, f'{topic_name}_notes_and_solutions.tex'))
+        create_file(os.path.join(tex_path, f'{topic_name}_notes.tex'))
+        create_file(os.path.join(tex_path, f'{topic_name}_solutions.tex'))
         create_file(os.path.join(pdf_path, f'{topic_name}_notes.pdf'))
         create_file(os.path.join(pdf_path, f'{topic_name}_solutions.pdf'))
         create_file(os.path.join(pdf_path, f'{topic_name}_notes_and_solutions.pdf'))

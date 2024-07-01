@@ -1,0 +1,215 @@
+% this is my first package
+% 
+% (c) Kia Ghods
+%
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN archives
+%% in directory macros/latex/base/lppl.txt.
+% 
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{kia}
+  [2024/05/27  v1.00 LaTeX package for my own purpose]
+
+\RequirePackage{amsmath, amsthm, amssymb, amsfonts}
+\RequirePackage{thmtools}
+\RequirePackage{graphicx}
+\RequirePackage{setspace}
+\RequirePackage{geometry}
+\RequirePackage{float}
+\RequirePackage{hyperref}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[english]{babel}
+\RequirePackage{framed}
+\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage{tcolorbox}
+\RequirePackage{enumerate}
+\RequirePackage{stix2}
+\RequirePackage{braket}
+\RequirePackage{polynom}
+\RequirePackage{tikz}
+\RequirePackage{pgfplots}
+\RequirePackage{appendix}
+\RequirePackage{caption}
+\RequirePackage{subcaption}
+\RequirePackage{tikz}
+\RequirePackage{tikz-3dplot}
+\usetikzlibrary{graphs}
+\usetikzlibrary{graphs.standard}
+\usepackage{makeidx}
+
+% Fancy header and page setup
+\usepackage[headsepline]{scrlayer-scrpage}
+\renewcommand{\headfont}{}
+\addtokomafont{subtitle}{\Large}
+\setkomafont{author}{\Large\scshape}
+\setkomafont{date}{\Large\normalsize}
+\addtokomafont{partprefix}{\rmfamily}
+\ihead{\footnotesize\textbf{Kia Ghods}}
+\automark{section}
+\chead{}
+\ohead{\footnotesize\textbf{\@title}}
+\cfoot{\pagemark}
+\setlength{\footskip}{0.5in}
+\setlength{\headsep}{10pt}
+
+% Colors and theorem styles
+\colorlet{LightGray}{White!90!Periwinkle}
+\colorlet{LightOrange}{Orange!15}
+\colorlet{LightGreen}{Green!15}
+
+\mdfdefinestyle{mdbluebox}{%
+  roundcorner=10pt,
+  linewidth=1pt,
+  skipabove=12pt,
+  innerbottommargin=9pt,
+  skipbelow=2pt,
+  linecolor=blue,
+  nobreak=true,
+  backgroundcolor=TealBlue!5
+}
+
+\mdfdefinestyle{mdredbox}{%
+  linewidth=0.5pt,
+  skipabove=12pt,
+  frametitleaboveskip=5pt,
+  frametitlebelowskip=0pt,
+  skipbelow=2pt,
+  frametitlefont=\bfseries,
+  innertopmargin=4pt,
+  innerbottommargin=8pt,
+  nobreak=true,
+  backgroundcolor=Salmon!5,
+  linecolor=RawSienna
+}
+
+\mdfdefinestyle{mdgreenbox}{%
+  skipabove=8pt,
+  skipbelow=0pt,
+  linewidth=2pt,
+  rightline=false,
+  leftline=true,
+  topline=false,
+  bottomline=false,
+  linecolor=ForestGreen,
+  backgroundcolor=ForestGreen!5
+}
+
+\mdfdefinestyle{mdblackbox}{%
+  skipabove=8pt,
+  linewidth=3pt,
+  rightline=false,
+  leftline=true,
+  topline=false,
+  bottomline=false,
+  linecolor=black,
+  backgroundcolor=RedViolet!5!gray!5
+}
+
+\theoremstyle{definition}
+
+\declaretheoremstyle[
+  headfont=\sffamily\bfseries\color{MidnightBlue},
+  mdframed={style=mdbluebox},
+  headpunct={\\[3pt]},
+  postheadspace={0pt}
+]{thmbluebox}
+\declaretheorem[style=thmbluebox, name=Theorem, numberwithin=section]{theorem}
+\declaretheorem[style=thmbluebox, name=Lemma, sibling=theorem]{lemma}
+\declaretheorem[style=thmbluebox, name=Proposition, sibling=theorem]{proposition}
+\declaretheorem[style=thmbluebox, name=Corollary, sibling=theorem]{corollary}
+
+\declaretheoremstyle[
+  headfont=\bfseries\color{RawSienna},
+  mdframed={style=mdredbox},
+  headpunct={\\[3pt]},
+  postheadspace={0pt}
+]{thmredbox}
+\declaretheorem[style=thmredbox, name=Example, sibling=theorem]{example}
+
+\declaretheoremstyle[
+  headfont=\bfseries\sffamily\color{ForestGreen!70!black},
+  bodyfont=\normalfont,
+  spaceabove=2pt,
+  spacebelow=1pt,
+  mdframed={style=mdgreenbox},
+  headpunct={ --- }
+]{thmgreenbox}
+\declaretheorem[style=thmgreenbox, name=Algorithm, sibling=theorem]{algorithm}
+\declaretheorem[style=thmgreenbox, name=Claim, sibling=theorem]{claim}
+
+\declaretheoremstyle[
+  headfont=\bfseries,
+  bodyfont=\normalfont\small,
+  spaceabove=0pt,
+  spacebelow=0pt,
+  mdframed={style=mdblackbox}
+]{thmblackbox}
+\declaretheorem[style=thmblackbox, name=Remark, sibling=theorem]{remark}
+
+\declaretheoremstyle[
+  headfont=\color{blue!40!black}\normalfont\bfseries,
+  spaceabove=8pt,
+  spacebelow=8pt,
+  bodyfont=\normalfont
+]{basehead}
+\declaretheorem[style=basehead, name=Definition, sibling=theorem]{definition}
+
+% Section and subsection formatting
+\@ifundefined{KOMAClassName}{}{
+  \@ifundefined{chapter}{}{
+    \addtokomafont{partprefix}{\rmfamily}
+    \renewcommand*{\partformat}{\color{purple}
+      \scalebox{2.5}{\thepart}\enlargethispage{2em}}
+    \addtokomafont{chapterprefix}{\raggedleft}
+    \RedeclareSectionCommand[beforeskip=0.5em]{chapter}
+    \renewcommand*{\chapterformat}{\mbox{%
+      \scalebox{1.5}{\chapappifchapterprefix{\nobreakspace}}%
+      \scalebox{2.718}{\color{purple}\thechapter}\enskip}}
+  }
+  \renewcommand*{\sectionformat}%
+    {\color{purple}\S\thesection\enskip}
+  \renewcommand*{\subsectionformat}%
+    {\color{purple}\S\thesubsection\enskip}
+  \renewcommand*{\subsubsectionformat}%
+    {\color{purple}\S\thesubsubsection\enskip}
+  \addtokomafont{paragraph}{\color{orange!35!black}\P\ }
+  \KOMAoptions{numbers=noenddot}
+  %\usetocstyle{KOMAlike}
+}
+
+% Table of contents formatting
+\usepackage{tocloft}
+\setlength{\cftbeforesecskip}{0.5em}
+\renewcommand{\cftsecdotsep}{\cftnodots}
+\renewcommand{\cftsecfont}{\normalfont}
+\renewcommand{\cftsecpagefont}{\normalfont}
+\renewcommand{\cftsubsecfont}{\normalfont}
+\renewcommand{\cftsubsecpagefont}{\normalfont}
+\renewcommand{\cftsubsecdotsep}{\cftnodots}
+\setlength{\cftbeforesubsecskip}{0.2em}
+
+% Custom commands and environments
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\Q}{{\mathbb Q}}
+\newcommand{\Z}{{\mathbb Z}}
+\newcommand{\N}{{\mathbb N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\limc}{{\lim_{x \rightarrow c}}}
+\newcommand{\image}{\operatorname{im}}
+\newcommand{\spa}{\operatorname{span}}
+\newcommand{\diverg}{\operatorname{div}}
+\newcommand{\curl}{\operatorname{curl}}
+\newcommand*{\vertbar}{\rule[-1ex]{0.5pt}{2.5ex}}
+\newcommand*{\horzbar}{\rule[.5ex]{2.5ex}{0.5pt}}
+
+\newenvironment{amatrix}[1]{%
+  \left(\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right)
+}
+
+\endinput
+%%
+%% End of file `kia.sty'.
