@@ -7,7 +7,7 @@
 %% in directory macros/latex/base/lppl.txt.
 % 
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
-\ProvidesPackage{kia}
+\ProvidesPackage{../../../kia}
   [2024/05/27  v1.00 LaTeX package for my own purpose]
 
 \RequirePackage{amsmath, amsthm, amssymb, amsfonts}
@@ -36,14 +36,15 @@
 \usetikzlibrary{graphs}
 \usetikzlibrary{graphs.standard}
 \usepackage{makeidx}
+\RequirePackage{mdframed}
 
 % Fancy header and page setup
 \usepackage[headsepline]{scrlayer-scrpage}
 \renewcommand{\headfont}{}
-\addtokomafont{subtitle}{\Large}
-\setkomafont{author}{\Large\scshape}
-\setkomafont{date}{\Large\normalsize}
-\addtokomafont{partprefix}{\rmfamily}
+% \addtokomafont{subtitle}{\Large}
+% \setkomafont{author}{\Large\scshape}
+% \setkomafont{date}{\Large\normalsize}
+% \addtokomafont{partprefix}{\rmfamily}
 \ihead{\footnotesize\textbf{Kia Ghods}}
 \automark{section}
 \chead{}
